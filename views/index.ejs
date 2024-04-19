@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+
+    <h1>GAMES!</h1>
+    <h2>If you're seeking some quality games suggestion of 2023, you came to the right place.</h2>
+    <p>First of all, be mindful that this is non-exhaustive list. Everybody is welcome to come here, pick a recommendation or leave their own!</p>
+
+    <div class="games">
+    <% gamesList.forEach(game => { %>
+        <a class="single" href="/<%= game._id %>">
+        <p class="gameName"><%= game.name %></p>
+    </a>
+    <% }) %>
+    </div>
+    <h2>Want to suggest a game?</h2>
+    <p class="suggest">Write below!</p>
+    <form class="container" method="post" action="/">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre (comma-separated)</label>
+            <input class="form-control" id="genre" name="genre">
+        </div>
+        <div class="form-group">
+            <label for="review">Review</label>
+            <textarea class="form-control" id="review" name="review"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="pegi">PEGI</label>
+            <input class="form-control" id="pegi" name="pegi" type="number">
+        </div>
+        <div class="form-group">
+            <label for="platform">Platform (comma-separated)</label>
+            <input class="form-control" id="platform" name="platform">
+        </div>
+        <button type="submit">Add to games list</button>
+    </form>
+
+
+</body>
+</html>
